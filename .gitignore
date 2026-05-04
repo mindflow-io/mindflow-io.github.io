@@ -1,0 +1,10 @@
+# Only ship the rolling Mindflow-latest.dmg.
+# Versioned DMGs (Mindflow-X.Y.Z.dmg) and any Meetflow-* legacy artifacts
+# bloat the repo and aren't referenced by VERSION.json (the auto-updater
+# always points at Mindflow-latest.dmg). Local copies stay on disk during
+# the release flow; git just doesn't track them.
+Mindflow-*.dmg
+!Mindflow-latest.dmg
+Meetflow-*.dmg
+
+.DS_Store
