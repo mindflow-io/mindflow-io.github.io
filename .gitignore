@@ -1,4 +1,4 @@
-# DMGs are NEVER tracked here. They live in GitHub Releases:
+# DMGs are NOT tracked here. They live in GitHub Releases:
 #   https://github.com/mindflow-io/mindflow-io.github.io/releases
 #
 # Until 2026-08-20 this file carried `!Mindflow-latest.dmg`, deliberately
@@ -7,8 +7,22 @@
 # across 41 commits, 713 MB packed, and Pages deploys over 13 minutes.
 # History was rewritten to purge them; VERSION.json now carries a `dmgUrl`
 # pointing at the Release asset, and release.sh uploads there instead.
-#
-# Do not re-add a negation for Mindflow-latest.dmg.
 *.dmg
 
+# ─── ONE deliberate exception: the legacy-updater bridge ──────────────────
+# Mindflow-latest.dmg is force-added ONCE, frozen at v0.9.2, because every
+# client up to v0.9.1 has this Pages URL COMPILED IN (UpdateChecker.swift) and
+# cannot be told about the new location. Without it those installs cannot
+# auto-update at all — and worse, the 404 would be saved as a fake DMG.
+#
+# It is FROZEN, not rolling. Do NOT refresh it on future releases:
+#   * v0.9.2 is the first build whose updater reads `dmgUrl` from VERSION.json,
+#     so an old client only ever needs to reach v0.9.2 — from there the normal
+#     Releases path takes over.
+#   * A client on, say, v0.9.0 seeing VERSION.json advertise v0.9.5 will fetch
+#     this bridge, land on v0.9.2, and then update to v0.9.5 on its next check.
+#     Two hops, no bloat.
+#   * Refreshing it each release is what cost 2.3 GB the first time.
+#
+# Safe to delete once nothing older than v0.9.2 is in use.
 .DS_Store
