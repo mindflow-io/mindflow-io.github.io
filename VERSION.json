@@ -1,7 +1,7 @@
 {
-  "version": "0.10.0",
-  "severity": "normal",
-  "releaseNotes": "https://mindflow-io.github.io/release-notes/v0.10.0.md",
-  "dmgUrl": "https://github.com/mindflow-io/mindflow-io.github.io/releases/download/v0.10.0/Mindflow-0.10.0.dmg",
+  "version": "0.10.1",
+  "severity": "critical",
+  "releaseNotes": "https://mindflow-io.github.io/release-notes/v0.10.1.md",
+  "dmgUrl": "https://github.com/mindflow-io/mindflow-io.github.io/releases/download/v0.10.1/Mindflow-0.10.1.dmg",
   "minimumVersionBeforeForced": null
 }
